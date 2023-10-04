@@ -1,4 +1,4 @@
-package edu.hw1;
+package edu.sample_hw;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
