@@ -1,15 +1,16 @@
 package edu.hw1;
 
-public class task1 {
+@SuppressWarnings("MagicNumber")
+public class Task1 {
 
-    public static int get_sec_duration(String str_duration){
+    public static int getSecDuration(String strDuration) {
         String regex = "^[0-9]+:[0-5][0-9]$";
 
-        if (!str_duration.matches(regex)){
+        if (!strDuration.matches(regex)) {
             return -1;
         }
 
-        String[] arr_dur = str_duration.split(":");
+        String[] arr_dur = strDuration.split(":");
         int minutes = Integer.parseInt(arr_dur[0]);
         int seconds = Integer.parseInt(arr_dur[1]);
 
