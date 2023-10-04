@@ -3,7 +3,7 @@ package edu.hw1;
 @SuppressWarnings("MagicNumber")
 public class Task1 {
 
-    private Task1(){
+    private Task1() {
     }
 
     public static int getSecDuration(String strDuration) {
