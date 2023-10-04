@@ -9,12 +9,7 @@ public class Task0 {
 
     private final static Logger LOGGER = LogManager.getLogger();
 
-    /**
-     * Главный метод приложения. Запускает выполнение программы.
-     *
-     * @param args аргументы командной строки
-     */
-    public static void main(String[] args) {
-        LOGGER.info("Hello world");
-    }
+//    public static void main(String[] args) {
+//        LOGGER.info("Hello world");
+//    }
 }
