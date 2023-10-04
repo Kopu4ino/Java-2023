@@ -10,8 +10,8 @@ public class task1 {
         }
 
         String[] arr_dur = str_duration.split(":");
-        Integer minutes = Integer.parseInt(arr_dur[0]);
-        Integer seconds = Integer.parseInt(arr_dur[1]);
+        int minutes = Integer.parseInt(arr_dur[0]);
+        int seconds = Integer.parseInt(arr_dur[1]);
 
         return 60 * minutes + seconds;
     }

@@ -4,7 +4,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
-public class task1Test {
+public class Task1Test {
     @Test
     @DisplayName("Длина в секундах(хороший ввод)")
     void inputValidDuration(){
