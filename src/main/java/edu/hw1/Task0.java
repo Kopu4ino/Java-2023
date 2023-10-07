@@ -9,7 +9,7 @@ public class Task0 {
 
     private final static Logger LOGGER = LogManager.getLogger();
 
-//    public static void main(String[] args) {
+//    public static void hello(String[] args) {
 //        LOGGER.info("Hello world");
 //    }
 }
