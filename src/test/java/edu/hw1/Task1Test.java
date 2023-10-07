@@ -12,11 +12,13 @@ public class Task1Test {
         String dur2 = "13:56";
         String dur3 = "200:10";
         String dur4 = "200:15";
+        String dur5 = "00:01";
 
         assertThat(Task1.getSecDuration(dur1)).isEqualTo(60);
         assertThat(Task1.getSecDuration(dur2)).isEqualTo(836);
         assertThat(Task1.getSecDuration(dur3)).isEqualTo(12010);
         assertThat(Task1.getSecDuration(dur4)).isEqualTo(12015);
+        assertThat(Task1.getSecDuration(dur5)).isEqualTo(1);
     }
 
     @Test
