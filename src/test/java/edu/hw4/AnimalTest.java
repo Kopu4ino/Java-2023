@@ -185,7 +185,7 @@ class AnimalTest {
             new Animal("HeavyDory", Animal.Type.FISH, Animal.Sex.F, 7, 20, 50, true)
         );
 
-        Assertions.assertThat(StreamsForAnimals.findHeaviestFishInLists(List.of(list1, list2)))
+        Assertions.assertThat(StreamsForAnimals.findHeaviestFishInLists17(List.of(list1, list2)))
             .isPresent()
             .contains(
                 new Animal("HeavyDory", Animal.Type.FISH, Animal.Sex.F, 7, 20, 50, true)
