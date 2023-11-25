@@ -23,7 +23,7 @@ class SynchronizedPersonDataBaseTest {
 
         assertThat(db.findByName("Artur Kop")).isEqualTo(person1);
         assertThat(db.findByAddress("Chkalova 123")).isEqualTo(person1);
-        assertThat(db.findByPhone("+7777777")).isEqualTo(person1);
+        assertThat(db.findByPhone("+77777777")).isEqualTo(person1);
     }
 
     @Test
@@ -33,7 +33,7 @@ class SynchronizedPersonDataBaseTest {
 
         assertThat(db.findByName("Artur Kop")).isNull();
         assertThat(db.findByAddress("Chkalova 123")).isNull();
-        assertThat(db.findByPhone("+7777777")).isNull();
+        assertThat(db.findByPhone("+77777777")).isNull();
     }
 
     @Test
