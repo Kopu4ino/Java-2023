@@ -17,8 +17,6 @@ public class LocalLogFileReader {
         Path basePath = Paths.get(pathParts[0]);
         String globPattern = pathParts[1];
 
-//        System.out.println("basePath: " + basePath);
-//        System.out.println("globPattern: " + "glob:" + globPattern);
 
         if (!globPattern.isEmpty()) {
             return readFilesByPattern(basePath, "glob:" + globPattern);

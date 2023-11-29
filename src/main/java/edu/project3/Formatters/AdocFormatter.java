@@ -2,9 +2,13 @@ package edu.project3.Formatters;
 
 import edu.project3.LogStatistics;
 import java.io.IOException;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import static edu.project3.LogStatistics.TOP_IPS_LIMIT;
 
 public class AdocFormatter {
+    private static final Logger LOGGER = LogManager.getLogger(AdocFormatter.class);
+
     @SuppressWarnings({"MultipleStringLiterals", "LineLength"})
     public String formatStatistics(LogStatistics statistics, String filePath, String fromDate, String toDate) {
         StringBuilder sb = new StringBuilder();
@@ -48,7 +52,8 @@ public class AdocFormatter {
             .append("|Код |Имя |Количество\n");
 
         statistics.getStatusCodeCounts().forEach((status, count) ->
-            sb.append("|").append(status).append(" |").append(FormatterUtils.getStatusName(status)).append(" |")
+            sb.append("|").append(status).append(" |").append(HttpStatus.getStatusName(status))
+                .append(" |")
                 .append(count)
                 .append("\n"));
 
@@ -59,6 +64,7 @@ public class AdocFormatter {
         try {
             FormatterUtils.writeToFile(result, defaultPathToSave);
         } catch (IOException e) {
+            LOGGER.error("Ошибка при записи в файл: {}", defaultPathToSave, e);
             throw new RuntimeException(e);
         }
 
