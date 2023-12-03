@@ -1,4 +1,4 @@
-package edu.hw8;
+package edu.hw8.Task1;
 
 import edu.hw8.Task1.Client;
 import edu.hw8.Task1.Server;
