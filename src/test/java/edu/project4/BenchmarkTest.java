@@ -9,6 +9,7 @@ import edu.project4.Renders.ConcurrentFractalRenderer;
 import edu.project4.Renders.FractalRenderer;
 import edu.project4.Transformations.DiscTransformation;
 import edu.project4.Transformations.ExponentialTransformation;
+import edu.project4.Transformations.HeartTransformation;
 import edu.project4.Transformations.LinearTransformation;
 import edu.project4.Transformations.PolarTransformation;
 import edu.project4.Transformations.SphericalTransformation;
@@ -40,6 +41,8 @@ class BenchmarkTest {
         transformations.add(new PolarTransformation(FractalColor.WHITE));
         transformations.add(new ExponentialTransformation(FractalColor.RED));
         transformations.add(new SpiralTransformation(FractalColor.AZURE));
+        transformations.add(new DiscTransformation(FractalColor.SKY_BLUE));
+        transformations.add(new HeartTransformation(FractalColor.SKY_BLUE));
         transformations.add(new DiscTransformation(FractalColor.SKY_BLUE));
 
         FractalRenderer singleThreadRenderer = new FractalRenderer();
