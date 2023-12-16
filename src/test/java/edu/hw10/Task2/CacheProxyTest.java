@@ -2,10 +2,33 @@ package edu.hw10.Task2;
 
 import edu.hw10.Task2.ForTests.TestInterface;
 import edu.hw10.Task2.ForTests.TestInterfaceImpl;
+import java.io.File;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 public class CacheProxyTest {
+
+    @BeforeEach
+    public void clearCache() {
+        File cacheDir = new File(System.getProperty("java.io.tmpdir"), "cache");
+        deleteDirectory(cacheDir);
+    }
+
+    private void deleteDirectory(File directory) {
+        if (directory.exists()) {
+            File[] files = directory.listFiles();
+            if (files != null) {
+                for (File file : files) {
+                    if (file.isDirectory()) {
+                        deleteDirectory(file);
+                    } else {
+                        file.delete();
+                    }
+                }
+            }
+        }
+    }
 
     @Test
     public void testMethodWithCache() {
