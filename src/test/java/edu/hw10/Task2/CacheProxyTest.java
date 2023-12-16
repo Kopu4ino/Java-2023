@@ -23,12 +23,16 @@ public class CacheProxyTest {
                     if (file.isDirectory()) {
                         deleteDirectory(file);
                     } else {
-                        file.delete();
+                        boolean isDeleted = file.delete();
+                        if (!isDeleted) {
+                            System.out.println("Не удалось удалить файл: " + file.getAbsolutePath());
+                        }
                     }
                 }
             }
         }
     }
+
 
     @Test
     public void testMethodWithCache() {

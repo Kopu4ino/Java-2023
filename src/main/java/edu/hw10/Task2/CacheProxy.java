@@ -75,7 +75,11 @@ public class CacheProxy {
             try {
                 File cacheDir = new File(System.getProperty(tmpDirName), newDirName);
                 if (!cacheDir.exists()) {
-                    cacheDir.mkdir();
+                    boolean isDirCreated = cacheDir.mkdir();
+                    if (!isDirCreated) {
+                        LOGGER.error("Не удалось создать директорию кэша: " + cacheDir.getAbsolutePath());
+                        return;
+                    }
                 }
                 File cacheFile = new File(cacheDir, key.hashCode() + extensionName);
 
