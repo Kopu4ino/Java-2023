@@ -11,6 +11,7 @@ import static org.mockito.ArgumentMatchers.any;
 class HackerNewsTest {
     @Test
     void testHackerNewsTopStories() throws Exception {
+        // Arrange
         HttpClient mockHttpClient = Mockito.mock(HttpClient.class);
         HttpResponse<String> mockResponse = Mockito.mock(HttpResponse.class);
 
@@ -22,13 +23,17 @@ class HackerNewsTest {
             .thenReturn(mockResponse);
 
         HackerNews hackerNews = new HackerNews(mockHttpClient);
+
+        // Act
         long[] actual = hackerNews.topStories();
 
+        // Assert
         assertThat(actual).containsExactly(777, 888);
     }
 
     @Test
     void testNews() throws Exception {
+        // Arrange
         HttpClient mockHttpClient = Mockito.mock(HttpClient.class);
         HttpResponse<String> mockResponse = Mockito.mock(HttpResponse.class);
 
@@ -40,8 +45,11 @@ class HackerNewsTest {
             .thenReturn(mockResponse);
 
         HackerNews hackerNews = new HackerNews(mockHttpClient);
+
+        // Act
         String actual = hackerNews.news(777);
 
+        // Assert
         assertThat(actual).isEqualTo("Test News Title");
     }
 }

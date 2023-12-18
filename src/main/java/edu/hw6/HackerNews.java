@@ -7,10 +7,13 @@ import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class HackerNews {
 
     private HttpClient client;
+    private final static Logger LOGGER = LogManager.getLogger();
 
     public HackerNews() {
         this.client = HttpClient.newHttpClient();
@@ -58,9 +61,10 @@ public class HackerNews {
             if (matcher.find()) {
                 return matcher.group(1);
             }
-            return "Название не найдено";
+            LOGGER.error("Название не найдено");
         } catch (IOException | InterruptedException e) {
-            return "Ошибка ввода-вывода";
+            LOGGER.error("Ошибка ввода-вывода");
         }
+        return null;
     }
 }
