@@ -23,6 +23,7 @@ import java.util.List;
 class BenchmarkTest {
     @Test
     void benchmark() {
+        // Arrange
         int width = 1920;
         int height = 1080;
         Rect world = new Rect(-1.25, -1.25, 2, 2);
@@ -45,12 +46,15 @@ class BenchmarkTest {
         transformations.add(new HeartTransformation(FractalColor.SKY_BLUE));
         transformations.add(new DiscTransformation(FractalColor.SKY_BLUE));
 
+        // Act
+        // Рендеринг однопоточным рендерером
         FractalRenderer singleThreadRenderer = new FractalRenderer();
         long startSingle = System.nanoTime();
         FractalImage imageSingle =
             singleThreadRenderer.render(width, height, world, transformations, samples, iterPerSample, seed);
         long endSingle = System.nanoTime();
 
+        // Рендеринг многопоточным рендерером
         ConcurrentFractalRenderer multiThreadRenderer = new ConcurrentFractalRenderer();
         long startMulti = System.nanoTime();
         FractalImage imageMulti = multiThreadRenderer.render(
@@ -62,7 +66,10 @@ class BenchmarkTest {
             iterPerSample,
             numberOfThreads
         );
+
         long endMulti = System.nanoTime();
+
+        // Сохранение результатов
         String singlePath = "fractalSingle.png";
         String multiPath = "fractalMulti.png";
 
@@ -73,6 +80,9 @@ class BenchmarkTest {
             throw new RuntimeException(e);
         }
 
+        // Assert
+        // В данном случае assert не используется, так как тест направлен на измерение производительности.
+        // Вместо этого выводятся результаты времени выполнения.
         System.out.println("Single-threaded rendering took: " + (endSingle - startSingle) / 1e9 + " sec.");
         System.out.println("Multi-threaded rendering took: " + (endMulti - startMulti) / 1e9 + " sec.");
     }
