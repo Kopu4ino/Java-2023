@@ -24,8 +24,9 @@ public class Task1 {
         }
         Duration result = sumDurations.dividedBy(userVisits.size());
         long hours = result.toHours();
-        long minute = (result.toMinutes() - MINUTE_IN_HOUR * result.toHours());
+        long minutes = result.toMinutes() % MINUTE_IN_HOUR;
 
-        return String.valueOf(hours) + "ч " + String.valueOf(minute) + "м";
+        return String.format("%dч %dм", hours, minutes);
+
     }
 }

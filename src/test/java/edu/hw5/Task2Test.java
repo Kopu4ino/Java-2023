@@ -10,9 +10,11 @@ import static org.assertj.core.api.AssertionsForClassTypes.in;
 class Task2Test {
     @Test
     void testGetAllBlackFridayByYear() {
+        //Arrange
         int inputYear1 = 2024;
         int inputYear2 = 1925;
 
+        //Act & Assert
         assertThat(Task2.getAllBlackFridayByYear(inputYear1)).isEqualTo(
             List.of(
                 LocalDate.of(inputYear1, 9, 13),
@@ -32,9 +34,11 @@ class Task2Test {
     @Test
     @DisplayName("Должен найти в текущем году")
     void testGetNextBlackFridayInCurYear() {
+        //Arrange
         LocalDate date1 = LocalDate.of(2024, 1, 13);
         LocalDate date2 = LocalDate.of(2024, 10, 13);
 
+        //Act & Assert
         assertThat(Task2.getNextBlackFriday(date1)).isEqualTo(LocalDate.of(2024, 9, 13));
         assertThat(Task2.getNextBlackFriday(date2)).isEqualTo(LocalDate.of(2024, 12, 13));
     }
@@ -42,8 +46,10 @@ class Task2Test {
     @Test
     @DisplayName("Должен найти в следующем году")
     void testGetNextBlackFridayInNextYear() {
+        //Arrange
         LocalDate date1 = LocalDate.of(2023, 12, 14);
 
+        //Act & Assert
         assertThat(Task2.getNextBlackFriday(date1)).isEqualTo(LocalDate.of(2024, 9, 13));
 
     }

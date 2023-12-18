@@ -7,6 +7,7 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 class Task8Test {
     @Test
     void testOddLength() {
+        //Arrange
         String input1 = "1";
         String input2 = "101";
         String input3 = "1010000";
@@ -15,18 +16,20 @@ class Task8Test {
         String badInput2 = "11";
         String badInput3 = "1000";
 
-        assertThat(input1.matches(Task8.oddLength)).isTrue();
-        assertThat(input2.matches(Task8.oddLength)).isTrue();
-        assertThat(input3.matches(Task8.oddLength)).isTrue();
+        //Act & Assert
+        assertThat(input1.matches(Task8.ODD_LENGTH)).isTrue();
+        assertThat(input2.matches(Task8.ODD_LENGTH)).isTrue();
+        assertThat(input3.matches(Task8.ODD_LENGTH)).isTrue();
 
-        assertThat(badInput1.matches(Task8.oddLength)).isFalse();
-        assertThat(badInput2.matches(Task8.oddLength)).isFalse();
-        assertThat(badInput3.matches(Task8.oddLength)).isFalse();
+        assertThat(badInput1.matches(Task8.ODD_LENGTH)).isFalse();
+        assertThat(badInput2.matches(Task8.ODD_LENGTH)).isFalse();
+        assertThat(badInput3.matches(Task8.ODD_LENGTH)).isFalse();
     }
 
     @Test
     @DisplayName("Четное количество нулей в строке")
     void testEvenCntZeros() {
+        //Arrange
         String input1 = "1"; // 0 - крастно 3
         String input2 = "1001010010"; // 6 нулей
         String input3 = "000";
@@ -34,16 +37,18 @@ class Task8Test {
         String badInput1 = "1010100";
         String badInput2 = "10";
 
-        assertThat(input1.matches(Task8.evenCntZeros)).isTrue();
-        assertThat(input2.matches(Task8.evenCntZeros)).isTrue();
-        assertThat(input3.matches(Task8.evenCntZeros)).isTrue();
+        //Act & Assert
+        assertThat(input1.matches(Task8.EVEN_CNT_ZEROS)).isTrue();
+        assertThat(input2.matches(Task8.EVEN_CNT_ZEROS)).isTrue();
+        assertThat(input3.matches(Task8.EVEN_CNT_ZEROS)).isTrue();
 
-        assertThat(badInput1.matches(Task8.evenCntZeros)).isFalse();
-        assertThat(badInput2.matches(Task8.evenCntZeros)).isFalse();
+        assertThat(badInput1.matches(Task8.EVEN_CNT_ZEROS)).isFalse();
+        assertThat(badInput2.matches(Task8.EVEN_CNT_ZEROS)).isFalse();
     }
 
     @Test
     void everyOddCharIsOne() {
+        //Arrange
         String input1 = "1010111";
         String input2 = "101";
         String input3 = "11";
@@ -51,17 +56,19 @@ class Task8Test {
         String badInput1 = "001";
         String badInput2 = "0";
 
-        assertThat(input1.matches(Task8.everyOddCharIsOne)).isTrue();
-        assertThat(input2.matches(Task8.everyOddCharIsOne)).isTrue();
-        assertThat(input3.matches(Task8.everyOddCharIsOne)).isTrue();
+        //Act & Assert
+        assertThat(input1.matches(Task8.EVERY_ODD_CHAR_IS_ONE)).isTrue();
+        assertThat(input2.matches(Task8.EVERY_ODD_CHAR_IS_ONE)).isTrue();
+        assertThat(input3.matches(Task8.EVERY_ODD_CHAR_IS_ONE)).isTrue();
 
-        assertThat(badInput1.matches(Task8.everyOddCharIsOne)).isFalse();
-        assertThat(badInput2.matches(Task8.everyOddCharIsOne)).isFalse();
+        assertThat(badInput1.matches(Task8.EVERY_ODD_CHAR_IS_ONE)).isFalse();
+        assertThat(badInput2.matches(Task8.EVERY_ODD_CHAR_IS_ONE)).isFalse();
     }
 
     @Test
     @DisplayName("начинается с 0 и имеет нечетную длину, или начинается с 1 и имеет четную длину")
     void testZeroOrOne() {
+        //Arrange
         String input1 = "010";
         String input2 = "0";
         String input3 = "00000";
@@ -73,14 +80,15 @@ class Task8Test {
         String badInput1 = "110";
         String badInput2 = "01";
 
-        assertThat(input1.matches(Task8.zeroOrOne)).isTrue();
-        assertThat(input2.matches(Task8.zeroOrOne)).isTrue();
-        assertThat(input3.matches(Task8.zeroOrOne)).isTrue();
-        assertThat(input4.matches(Task8.zeroOrOne)).isTrue();
-        assertThat(input5.matches(Task8.zeroOrOne)).isTrue();
-        assertThat(input6.matches(Task8.zeroOrOne)).isTrue();
+        //Act & Assert
+        assertThat(input1.matches(Task8.ZERO_OR_ONE)).isTrue();
+        assertThat(input2.matches(Task8.ZERO_OR_ONE)).isTrue();
+        assertThat(input3.matches(Task8.ZERO_OR_ONE)).isTrue();
+        assertThat(input4.matches(Task8.ZERO_OR_ONE)).isTrue();
+        assertThat(input5.matches(Task8.ZERO_OR_ONE)).isTrue();
+        assertThat(input6.matches(Task8.ZERO_OR_ONE)).isTrue();
 
-        assertThat(badInput1.matches(Task8.zeroOrOne)).isFalse();
-        assertThat(badInput2.matches(Task8.zeroOrOne)).isFalse();
+        assertThat(badInput1.matches(Task8.ZERO_OR_ONE)).isFalse();
+        assertThat(badInput2.matches(Task8.ZERO_OR_ONE)).isFalse();
     }
 }

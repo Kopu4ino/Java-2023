@@ -8,9 +8,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Task2 {
-    final static int TARGET_DAY = 13;
-    final static int MONTH_IN_YEAR = 12;
-    final static int DAY_IN_WEEK = 7;
+    private final static int TARGET_DAY = 13;
+    private final static int MONTH_IN_YEAR = 12;
+    private final static int DAY_IN_WEEK = 7;
 
     private Task2() {
     }

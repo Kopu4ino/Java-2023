@@ -6,6 +6,7 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 class Task7Test {
     @Test
     void testRegex1() {
+        //Arrange
         String goodSt1 = "110";
         String goodSt2 = "000";
         String goodSt3 = "10011010010";
@@ -14,6 +15,7 @@ class Task7Test {
         String badSt2 = "";
         String badSt3 = "1111111";
 
+        //Act & Assert
         assertThat(goodSt1.matches(Task7.regex1)).isTrue();
         assertThat(goodSt2.matches(Task7.regex1)).isTrue();
         assertThat(goodSt3.matches(Task7.regex1)).isTrue();
@@ -25,6 +27,7 @@ class Task7Test {
 
     @Test
     void testRegex2() {
+        //Arrange
         String goodSt1 = "1";
         String goodSt2 = "101001";
         String goodSt3 = "0110";
@@ -32,6 +35,7 @@ class Task7Test {
         String badSt1 = "110";
         String badSt2 = "00001";
 
+        //Act & Assert
         assertThat(goodSt1.matches(Task7.regex2)).isTrue();
         assertThat(goodSt2.matches(Task7.regex2)).isTrue();
         assertThat(goodSt3.matches(Task7.regex2)).isTrue();
@@ -42,6 +46,7 @@ class Task7Test {
 
     @Test
     void testRegex3(){
+        //Arrange
         String goodSt1 = "110";
         String goodSt2 = "10";
         String goodSt3 = "0";
@@ -49,6 +54,7 @@ class Task7Test {
         String badSt1 = "";
         String badSt2 = "00101010";
 
+        //Act & Assert
         assertThat(goodSt1.matches(Task7.regex3)).isTrue();
         assertThat(goodSt2.matches(Task7.regex3)).isTrue();
         assertThat(goodSt3.matches(Task7.regex3)).isTrue();

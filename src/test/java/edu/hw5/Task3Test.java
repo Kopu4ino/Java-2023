@@ -11,6 +11,7 @@ public class Task3Test {
     private final DataParsersChain chain = new DataParsersChain();
     @Test
     void testChainOfParsersCorrectInput() {
+        //Arrange
         String test1 = "2020-10-20";
         LocalDate expect1 = LocalDate.of(2020, 10, 20);
 
@@ -23,6 +24,7 @@ public class Task3Test {
         String test4 = "11 days ago";
         LocalDate expect4 = LocalDate.now().minusDays(11);
 
+        //Act & Assert
         assertThat(chain.parseDate(test1).get()).isEqualTo(expect1);
         assertThat(chain.parseDate(test2).get()).isEqualTo(expect2);
         assertThat(chain.parseDate(test3).get()).isEqualTo(expect3);
@@ -31,12 +33,14 @@ public class Task3Test {
 
     @Test
     void testChainOfParsersInCorrectInput() {
+        //Arrange
         String test1 = "2020-10-20000";
         String test2 = "/10/20";
         String test3 = "1 days ago! sdfsf";
 
         var expect = Optional.empty();
 
+        //Act & Assert
         assertThat(chain.parseDate(test1)).isEqualTo(Optional.empty());
         assertThat(chain.parseDate(test2)).isEqualTo(Optional.empty());
         assertThat(chain.parseDate(test3)).isEqualTo(Optional.empty());

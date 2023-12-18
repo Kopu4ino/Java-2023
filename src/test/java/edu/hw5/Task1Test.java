@@ -12,6 +12,7 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThatThrownBy;
 class Task1Test {
     @Test
     void testGameClubAnalyticsCorrectInput() {
+        //Arrange
         List<String> input1 = List.of(
             "2022-03-12, 20:20 - 2022-03-12, 23:50",
             "2022-04-01, 21:30 - 2022-04-02, 01:20");
@@ -21,6 +22,7 @@ class Task1Test {
             "2022-04-01, 21:30 - 2022-04-01, 21:30",
             "2022-04-01, 21:30 - 2022-04-01, 21:30");
 
+        //Act & Assert
         assertThat(Task1.gameClubAnalytics(input1)).isEqualTo("3ч 40м");
         assertThat(Task1.gameClubAnalytics(input2)).isEqualTo("0ч 0м");
 
