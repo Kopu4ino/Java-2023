@@ -5,6 +5,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Stream;
 
 public class Task1 {
+
     private final AtomicInteger value = new AtomicInteger(0);
 
     private void increment() {

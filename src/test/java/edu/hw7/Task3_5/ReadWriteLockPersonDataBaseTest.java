@@ -10,12 +10,14 @@ import static org.assertj.core.api.Assertions.assertThat;
 class ReadWriteLockPersonDataBaseTest {
     @Test
     void testParallelReadAndWrite() throws InterruptedException {
+        // Arrange
         ReadWriteLockPersonDataBase db = new ReadWriteLockPersonDataBase();
         ExecutorService executor = Executors.newFixedThreadPool(4);
 
         Runnable writeTask = () -> db.add(new Person(1, "Artur Kop", "Chkalova 123", "+7777777"));
         Runnable readTask = () -> db.findByName("Artur Kop");
 
+        // Act
         for (int i = 0; i < 1000000; i++) {
             executor.submit(i % 2 == 0 ? writeTask : readTask);
         }
@@ -23,8 +25,8 @@ class ReadWriteLockPersonDataBaseTest {
         executor.shutdown();
         boolean finished = executor.awaitTermination(1, TimeUnit.MINUTES);
 
+        // Assert
         assertThat(finished).isTrue();
-
         assertThat(db.findByName("Artur Kop")).isNotNull();
     }
 }

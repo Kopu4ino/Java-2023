@@ -8,6 +8,7 @@ class Task2Test {
 
     @ParameterizedTest
     @CsvSource({
+        //Arrange
         "0, 1",
         "1, 1",
         "3, 6",
@@ -15,6 +16,7 @@ class Task2Test {
         "8, 40_320",
     })
     void testCalcFactor(int n, int expect) {
+        //Act & Assert
         assertThat(Task2.calcFactor(n)).isEqualTo(expect);
     }
 }
