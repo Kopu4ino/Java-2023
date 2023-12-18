@@ -12,9 +12,10 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 public class FileSearchTask extends RecursiveTask<List<Path>> {
+
+    private static final Logger LOGGER = LogManager.getLogger(FileSearchTask.class);
     private final Path directory;
     private final Predicate<Path> filePredicate;
-    private final static Logger LOGGER = LogManager.getLogger(FileSearchTask.class);
 
     public FileSearchTask(Path directory, Predicate<Path> filePredicate) {
         this.directory = directory;

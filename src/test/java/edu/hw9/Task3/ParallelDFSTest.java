@@ -10,6 +10,7 @@ class ParallelDFSTest {
 
     @Test
     void testDFS() {
+        //Arrange
         Graph graph = new Graph(10);
 
         graph.addEdge(0, 1);
@@ -28,8 +29,11 @@ class ParallelDFSTest {
 
         boolean[] visited = new boolean[10];
         ForkJoinPool pool = new ForkJoinPool();
+
+        //Act
         pool.invoke(new DFSAction(graph, visited, 0));
 
+        //Assert
         boolean[] expectedVisited = new boolean[10];
         Arrays.fill(expectedVisited, true);
         assertThat(visited).containsExactly(expectedVisited);

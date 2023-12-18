@@ -5,9 +5,9 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.List;
 import java.util.concurrent.ForkJoinPool;
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.io.TempDir;
+import static org.assertj.core.api.AssertionsForInterfaceTypes.assertThat;
 
 public class FileSearchTest {
 
@@ -16,20 +16,28 @@ public class FileSearchTest {
 
     @Test
     public void testFileSearchTasks() throws IOException {
+        //Arrange
         createTestFiles(tempDir);
-
         ForkJoinPool forkJoinPool = new ForkJoinPool(3);
 
         // Тестирование DirectorySearchTask
         DirectorySearchTask dirSearchTask = new DirectorySearchTask(tempDir, 2);
+
+        //Act
         List<Path> directories = forkJoinPool.invoke(dirSearchTask);
-        Assertions.assertThat(directories).containsExactly(tempDir);
+
+        //Assert
+        assertThat(directories).containsExactly(tempDir);
 
 
         // Тестирование FileSearchTask
         FileSearchTask fileSearchTask = new FileSearchTask(tempDir, FilePredicates.extensionPredicate(".txt"));
+
+        //Act
         List<Path> txtFiles = forkJoinPool.invoke(fileSearchTask);
-        Assertions.assertThat(txtFiles).hasSize(2).allMatch(path -> path.toString().endsWith(".txt"));
+
+        //Assert
+        assertThat(txtFiles).hasSize(2).allMatch(path -> path.toString().endsWith(".txt"));
     }
 
     private void createTestFiles(Path dir) throws IOException {
