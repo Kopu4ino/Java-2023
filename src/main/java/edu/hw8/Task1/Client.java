@@ -10,9 +10,10 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 public class Client {
-    private static final String SERVER_ADDRESS = "localhost";
-    private int serverPort;
+    private final static String SERVER_ADDRESS = "localhost";
     private final static Logger LOGGER = LogManager.getLogger();
+
+    private int serverPort;
 
     public Client(int port) {
         this.serverPort = port;
